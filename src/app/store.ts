@@ -1,11 +1,11 @@
 import { configureStore  } from "@reduxjs/toolkit";
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { productListReducer } from "@features";
+import { productsListSlice } from "@features";
 import { api } from "@app";
 
 export const store = configureStore({
 	reducer: {
-		productsList: productListReducer,
+		[productsListSlice.name]: productsListSlice.reducer,
 		[api.reducerPath]: api.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>

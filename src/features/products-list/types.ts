@@ -14,4 +14,7 @@ export type Product = {
 
 export type ProductsListState = {
     products: Product[];
+    productsFiltered: Product[];
+    areProductsFiltered: boolean,
+    isLoading: boolean;
 };
