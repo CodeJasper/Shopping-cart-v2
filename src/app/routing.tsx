@@ -1,4 +1,4 @@
-import { ProductDetailPage, ProductsListPage } from "@features";
+import { CartPage, ProductDetailPage, ProductsListPage } from "@features";
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../MainLayout";
 
@@ -13,6 +13,10 @@ export const router = createBrowserRouter([
       {
         path: "/product/:id",
         Component: ProductDetailPage,
+      },
+      {
+        path: "/cart",
+        Component: CartPage,
       },
     ],
   },
