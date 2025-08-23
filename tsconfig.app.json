@@ -29,7 +29,9 @@
       "@app/*": ["app/*"],
       "@app": ["app/index"],
       "@features/*": ["features/*"],
-      "@features": ["features/index"]
+      "@features": ["features/index"],
+      "@components/*": ["components/*"],
+      "@components": ["components/index"]
     }
 
   },
