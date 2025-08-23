@@ -10,6 +10,19 @@ export type Product = {
         priceWithoutFormatting: number;
     }>;
     mediaUrls: string[];
+    brand: string;
+    model: string;
+    badges: Array<{
+        type: string;
+        value: string;
+    }>;
+    events: Array<{
+        description: string;
+        value: string;
+    }>;
+    multiPurposeIcon: {
+        iconUrl: string;
+    }
 };
 
 export type ProductsListState = {
