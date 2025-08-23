@@ -7,11 +7,23 @@ const initialState: Cart = {
 	total: 0,
 }
 
-export const cartSlcie = createSlice({
-	name: "cartSlice",
+export const cartSlice = createSlice({
+	name: "cart",
 	initialState,
 	reducers: {
 		addProduct: (state, action) => {
+			const { productId, quantity } = action.payload;
+			const productIndex = state.products.findIndex((product) => product.productId === productId); 
+
+			if(productIndex !== -1){
+				const currentProduct = state.products[productIndex];
+				state.products[productIndex] = {
+					...currentProduct,
+					quantity: currentProduct.quantity + quantity
+				};
+				return;
+			}
+
 			state.products = [...state.products, action.payload];
 		},
 		setProductQuantity: (state, action) => {
@@ -33,4 +45,4 @@ export const cartSlcie = createSlice({
 	},
 })
 
-export const { addProduct, deleteProduct, setProductQuantity } = cartSlcie.actions;
+export const { addProduct, deleteProduct, setProductQuantity } = cartSlice.actions;

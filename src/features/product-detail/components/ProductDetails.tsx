@@ -1,4 +1,4 @@
-import type { Product } from "@features";
+import { AddProductToCartButton, type Product } from "@features";
 
 export type ProductDetailsProps = {
   product: Product;
@@ -28,6 +28,7 @@ export function ProductDetails({product}: ProductDetailsProps) {
       {product.multiPurposeIcon && (
         <img className="mt-4" src={product.multiPurposeIcon.iconUrl}/>
       )}
+      <AddProductToCartButton product={product} />
     </div>
   )
 }

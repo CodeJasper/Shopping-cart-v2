@@ -1,5 +1,9 @@
 import type { Product } from "@features";
 
+export type ProductCart = Product & {
+    quantity: number;
+}
+
 export type Cart = {
     purchaseDate?: string;
     total: number;
@@ -8,7 +12,5 @@ export type Cart = {
         type: string;
         value: number;
     }>
-    products: Array<Product & {
-        quantity: number;
-    }>
+    products: ProductCart[]
 }

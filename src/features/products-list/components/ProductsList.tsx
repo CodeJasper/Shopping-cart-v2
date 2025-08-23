@@ -1,7 +1,8 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { type RootState } from '@app'
-import { ProductListCard } from "@features";
+import { addProduct, ProductListCard, type Product } from "@features";
 import { Loading } from '@components';
+import type { MouseEvent } from 'react';
 
 export function ProductsList() {
   const { 
@@ -10,6 +11,7 @@ export function ProductsList() {
     areProductsFiltered,
     isLoading
   } = useSelector((state: RootState) => state.productList);
+  const dispatch = useDispatch();
 
   if(isLoading) {
     return <Loading />;
@@ -17,6 +19,12 @@ export function ProductsList() {
 
   if((areProductsFiltered && productsFiltered.length === 0) || products.length === 0) {
     return <p className="text-center col-span-3">No se encontraron productos</p>;
+  }
+
+  const handleAddToCart = (e: MouseEvent<HTMLButtonElement>, product: Product) => {
+    e.stopPropagation();
+    e.preventDefault();
+    dispatch(addProduct({...product, quantity: 1}))
   }
 
   const productsToShow = productsFiltered.length ? productsFiltered : products;
@@ -29,6 +37,7 @@ export function ProductsList() {
           displayName={product.displayName}
           imageUrl={product.mediaUrls[0]}
           price={product.prices[0].price}
+          handleAddToCart={(e: MouseEvent<HTMLButtonElement>) => handleAddToCart(e, product)}
         />
       ))}
     </div>
