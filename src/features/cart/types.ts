@@ -5,12 +5,7 @@ export type ProductCart = Product & {
 }
 
 export type Cart = {
-    purchaseDate?: string;
     total: number;
     subTotal: number;
-    taxes?: Array<{
-        type: string;
-        value: number;
-    }>
     products: ProductCart[]
 }

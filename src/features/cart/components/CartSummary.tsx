@@ -1,15 +1,22 @@
-export type CartSummaryProps = {
-  subTotal: number;
-}
+import type { RootState } from "@app";
+import { useSelector } from "react-redux";
+import { saveAs } from "file-saver";
 
-export function CartSummary(props: CartSummaryProps) {
-  const { subTotal } = props;
+export function CartSummary() {
+  const { total, subTotal, products } = useSelector((state: RootState) => state.cart);
 
-  const calculateTotalWithIVA = () => {
-    const tax = subTotal * 0.19;
-    const total = subTotal + tax;
-    return total;
-  }
+  const handleDownload = () => {
+    const cartJson = {
+      products,
+      total,
+      subTotal,
+      date: new Date()
+    };
+    const blob = new Blob([JSON.stringify(cartJson, null, 2)], {
+      type: "application/json",
+    });
+    saveAs(blob, "cart.json");
+  };
   
   return (
     <>
@@ -21,10 +28,15 @@ export function CartSummary(props: CartSummaryProps) {
         <p className="flex justify-between"><span>IVA:</span><span>19%</span></p>
 
         <div className="border-t border-gray-200 mt-4 pt-4">
-          <p className="flex justify-between font-semibold text-xl"><span>Total a pagar:</span><span>$ {calculateTotalWithIVA().toLocaleString('es-ES')}</span></p>
+          <p className="flex justify-between font-semibold text-xl"><span>Total a pagar:</span><span>$ {total.toLocaleString('es-ES')}</span></p>
         </div>
 
-        <button className="rounded px-4 py-3 bg-green-600 w-full text-xl font-semibold mt-4 text-white hover:cursor-pointer hover:bg-green-500">Comprar</button>
+        <button
+          className="rounded px-4 py-3 bg-green-600 w-full text-xl font-semibold mt-4 text-white hover:cursor-pointer hover:bg-green-500"
+          onClick={handleDownload}
+        >
+          Comprar
+        </button>
       </div>
     </>
   )

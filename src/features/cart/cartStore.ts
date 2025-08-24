@@ -7,6 +7,15 @@ const initialState: Cart = {
 	total: 0,
 }
 
+const calculateTotals = (products: Cart["products"]) => {
+  const subTotal = products.reduce(
+    (acc, product) => acc + product.prices[0].priceWithoutFormatting * product.quantity,
+    0
+  );
+  const total = subTotal * 1.19;
+  return { subTotal, total };
+}
+
 export const cartSlice = createSlice({
 	name: "cart",
 	initialState,
@@ -21,6 +30,10 @@ export const cartSlice = createSlice({
 					...currentProduct,
 					quantity: currentProduct.quantity + quantity
 				};
+
+				const { subTotal, total } = calculateTotals(state.products);
+				state.total = total;
+				state.subTotal = subTotal;
 				return;
 			}
 
@@ -32,6 +45,10 @@ export const cartSlice = createSlice({
 
 			if(productIndex !== -1) {
 				state.products[productIndex].quantity = quantity; 
+
+				const { subTotal, total } = calculateTotals(state.products);
+				state.total = total;
+				state.subTotal = subTotal;
 			}
 		},
 		deleteProduct: (state, action) => {
@@ -40,6 +57,10 @@ export const cartSlice = createSlice({
 
 			if(productIndex !== -1) {
 				state.products.splice(productIndex, 1);
+
+				const { subTotal, total } = calculateTotals(state.products);
+				state.total = total;
+				state.subTotal = subTotal;
 			}
 		}
 	},

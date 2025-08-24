@@ -2,13 +2,8 @@ import type { RootState } from "@app";
 import { useSelector } from "react-redux";
 import { CartProductListItem } from "@features";
 
-export type CartProductListProps = {
-  subTotal: number;
-}
-
-export function CartProductList(props: CartProductListProps) {
-  const { subTotal } = props;
-  const { products } = useSelector((state: RootState) => state.cart);
+export function CartProductList() {
+  const { products, subTotal } = useSelector((state: RootState) => state.cart);
 
   return (
     <>
