@@ -3,6 +3,7 @@ import { Navbar } from '@components'
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { QueryStatus } from '@reduxjs/toolkit/query';
+import { Toaster } from "react-hot-toast";
 import { setIsLoadingProducts, setProducts } from '@features';
 import { useGetProductsQuery } from '@app';
 
@@ -24,6 +25,17 @@ function MainLayout() {
   return (
     <>
       <Navbar />
+      <Toaster 
+        toastOptions={{
+          success: {
+            duration: 1000,
+            style: {
+              background: '#9aeab7ff',
+              color: '#000',
+            }
+          },
+        }}
+      />
       <div className="container mx-auto p-4 pt-[100px] lg:max-w-7xl">
         <Outlet />
       </div>

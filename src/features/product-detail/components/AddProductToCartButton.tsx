@@ -5,6 +5,7 @@ import type { MouseEvent } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "@features";
 import type { Product } from "@features";
+import { toast } from "react-hot-toast";
 
 export type AddProductToCartButtonProps = {
   product: Product
@@ -35,6 +36,7 @@ export function AddProductToCartButton(props: AddProductToCartButtonProps) {
 
   const handleAddToCart = (_: MouseEvent<HTMLButtonElement>) => {
     dispatch(addProduct({...product, quantity }))
+    toast.success("Producto agregado al carro.");  
   }
 
   return (

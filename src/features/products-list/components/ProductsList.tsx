@@ -3,6 +3,7 @@ import { type RootState } from '@app'
 import { addProduct, ProductListCard, type Product } from "@features";
 import { Loading } from '@components';
 import type { MouseEvent } from 'react';
+import { toast } from "react-hot-toast";
 
 export function ProductsList() {
   const { 
@@ -25,6 +26,7 @@ export function ProductsList() {
     e.stopPropagation();
     e.preventDefault();
     dispatch(addProduct({...product, quantity: 1}))
+    toast.success("Producto agregado al carro.");
   }
 
   const productsToShow = productsFiltered.length ? productsFiltered : products;
