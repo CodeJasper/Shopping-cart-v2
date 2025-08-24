@@ -34,7 +34,7 @@ export function SearchInputExpanded(props: SearchInputExpandedProps) {
   }, []);
 
   return (
-    <div className="absolute left-0 top-0 w-full z-10 bg-white p-4 flex" >
+    <div className="absolute left-0 top-0 w-full z-10 bg-white p-4 flex border-b border-gray-200" >
       <button
         className="text-gray-500 hover:text-gray-700 hover:cursor-pointer"
         aria-label="Back"

@@ -6,7 +6,7 @@ export function Navbar() {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
 
   return (
-    <nav className="bg-white fixed w-full top-0 left-0 border-b border-gray-200 z-50">
+    <nav className="bg-white fixed w-full top-0 left-0 border-b border-gray-200 z-50 min-h-[75px]">
       <div className="relative container p-4 mx-auto lg:max-w-7xl flex justify-between items-center">
         <h1 className="text-2xl font-bold">Sodimac Tech</h1>
         <div className="flex items-center gap-4">
