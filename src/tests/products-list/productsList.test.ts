@@ -1,6 +1,6 @@
-import { productsListSlice, setProducts, setProductsFiltered, setIsLoadingProducts } from "@features/products-list/productsListStore";
+import { productsListSlice, setProducts, setProductsFiltered, setIsLoadingProducts } from "@features/products-list/store/productsListStore";
 import { test, expect, describe,beforeEach } from "vitest";
-import type { ProductsListState } from "@features/products-list/types";
+import type { ProductsListState } from "@features/products-list/types/types";
 import { mockProducts } from "@tests/mocks/products"
 
 describe("productsListSlice", () => {

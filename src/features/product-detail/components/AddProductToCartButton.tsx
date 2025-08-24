@@ -3,7 +3,7 @@ import { BUTTON_SIZES, BUTTON_VARIANTS } from "@components/button/constants";
 import { InputNumberQuantity } from "@components/input-numer-quantity/InputNumberQuantity";
 import { Button } from "@components/button/Buttton";
 import { useAddProductToCart } from "@features/cart/hooks/useAddProductToCart";
-import type { Product } from "@features/products-list/types";
+import type { Product } from "@features/products-list/types/types";
 
 export type AddProductToCartButtonProps = {
   product: Product

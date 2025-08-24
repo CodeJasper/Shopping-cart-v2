@@ -1,4 +1,4 @@
-import { type Product } from "@features/products-list/types";
+import { type Product } from "@features/products-list/types/types";
 import { AddProductToCartButton } from "@features/product-detail/components/AddProductToCartButton";
 
 export type ProductDetailsProps = {

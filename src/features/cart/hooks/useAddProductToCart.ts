@@ -2,7 +2,7 @@ import { useState, type ChangeEvent, type MouseEvent } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import { deleteProduct, addProduct } from "@features/cart/store/cartStoreSlice";
-import { type ProductCart } from "@features/cart/types";
+import { type ProductCart } from "@features/cart/types/types";
 
 export type UseAddProductToCartProps = {
   product: ProductCart;

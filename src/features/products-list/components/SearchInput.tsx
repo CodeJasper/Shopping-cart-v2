@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from "react-router";
 import { SearchInputStatic } from "@features/products-list/components/SearchInputStatic";
 import { SearchInputExpanded } from "@features/products-list/components/SearchInputExpanded";
-import { setProductsFiltered } from "@features/products-list/productsListStore";
+import { setProductsFiltered } from "@features/products-list/store/productsListStore";
 import { ROUTES } from "@app/routing/routes";
 
 export function SearchInput() {

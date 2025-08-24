@@ -1,8 +1,8 @@
 import { configureStore, type EnhancedStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { api } from "@app/api";
+import { api } from "@app/api/api";
 import { cartSlice } from "@features/cart/store/cartStoreSlice";
-import { productsListSlice  } from "@features/products-list/productsListStore";
+import { productsListSlice  } from "@features/products-list/store/productsListStore";
 
 export const setupApiStore = () => {
   const store: EnhancedStore = configureStore({

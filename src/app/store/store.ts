@@ -3,8 +3,8 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
 import { cartSlice } from "@features/cart/store/cartStoreSlice";
-import { productsListSlice } from "@features/products-list/productsListStore";
-import { api } from "@app/api";
+import { productsListSlice } from "@features/products-list/store/productsListStore";
+import { api } from "@app/api/api";
 
 const rootReducer = combineReducers({
   [productsListSlice.name]: productsListSlice.reducer,

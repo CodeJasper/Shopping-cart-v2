@@ -1,7 +1,7 @@
 import { setupApiStore } from "../utils/setupApiStore";
-import { api } from "../../app/api";
+import { api } from "../../app/api/api";
 import { test, expect } from "vitest";
-import type { AppDispatch } from "@app/store";
+import type { AppDispatch } from "@app/store/store";
 
 test("fetches and transforms products correctly", async () => {
   const store = setupApiStore();

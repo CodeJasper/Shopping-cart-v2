@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import { QueryStatus } from '@reduxjs/toolkit/query';
 import { Toaster } from "react-hot-toast";
 import { Navbar } from '@components/navbar/Navbar'
-import { setIsLoadingProducts, setProducts } from '@features/products-list/productsListStore';
-import { useGetProductsQuery } from '@app/api';
+import { setIsLoadingProducts, setProducts } from '@features/products-list/store/productsListStore';
+import { useGetProductsQuery } from '@app/api/api';
 
 function MainLayout() {  
   const response = useGetProductsQuery();

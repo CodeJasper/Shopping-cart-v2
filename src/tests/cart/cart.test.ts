@@ -1,7 +1,7 @@
 import { test, expect, describe,beforeEach } from "vitest";
 import { mockProducts } from "@tests/mocks/products"
 import { cartSlice, addProduct, setProductQuantity, deleteProduct, resetCart } from "@features/cart/store/cartStoreSlice";
-import { type Cart } from "@features/cart/types";
+import { type Cart } from "@features/cart/types/types";
 
 describe("cartSlice", () => {
   let initialState: Cart;

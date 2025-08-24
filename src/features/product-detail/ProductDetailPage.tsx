@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
-import type { RootState } from "@app/store";
+import type { RootState } from "@app/store/store";
 import { ProductDetails } from "@features/product-detail/components/ProductDetails";
 import { Slider } from "@features/product-detail/components/Slider";
 import { Loading } from "@components/loading/Loading";

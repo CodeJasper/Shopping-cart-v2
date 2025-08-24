@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import type { RootState } from "@app/store";
+import type { RootState } from "@app/store/store";
 import { CartProductList} from "@features/cart/components/CartProductList";
 import { CartSummary } from "@features/cart/components/CartSummary";
 

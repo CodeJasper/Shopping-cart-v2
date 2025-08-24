@@ -1,7 +1,7 @@
 import { saveAs } from "file-saver";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import type { RootState } from "@app/store";
+import type { RootState } from "@app/store/store";
 import { resetCart } from "@features/cart/store/cartStoreSlice";
 import { ROUTES } from "@app/routing/routes";
 import { Button } from "@components/button/Buttton";

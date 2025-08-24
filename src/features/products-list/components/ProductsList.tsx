@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import type { MouseEvent } from 'react';
 import { toast } from "react-hot-toast";
-import { type RootState } from '@app/store'
-import { type Product } from "@features/products-list/types";
+import { type RootState } from '@app/store/store'
+import { type Product } from "@features/products-list/types/types";
 import { addProduct } from "@features/cart/store/cartStoreSlice";
 import { ProductListCard } from "@features/products-list/components/ProductListCard";
 import { Loading } from '@components/loading/Loading';
