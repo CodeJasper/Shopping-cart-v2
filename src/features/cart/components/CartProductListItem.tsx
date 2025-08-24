@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import type { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router";
+import { ROUTES } from "@app";
 
 export type CartProductListItemProps = {
   product: ProductCart;
@@ -50,12 +51,12 @@ export function CartProductListItem(props: CartProductListItemProps) {
         >
           <DeleteIcon />
         </button>
-        <NavLink className="col-span-2" to={`/product/${product.productId}`}>
+        <NavLink className="col-span-2" to={ROUTES.PRODUCT_DETAIL.getRoute(product.productId)}>
           <img src={product.mediaUrls[0]} />
         </NavLink>
         <div className="col-span-10 lg:col-span-4 pr-7 mr-7 lg:pr-0 lg:mr-0">
           <p className="text-gray-600">{product.brand}</p>
-          <h2 className="font-semibold"><NavLink to={`/product/${product.productId}`}>{product.displayName}</NavLink></h2>
+          <h2 className="font-semibold"><NavLink to={ROUTES.PRODUCT_DETAIL.getRoute(product.productId)}>{product.displayName}</NavLink></h2>
           <p className="text-gray-600">Modelo: {product.model || "Sin modelo"}</p>
         </div>
         <div className="col-span-8 lg:col-span-4">

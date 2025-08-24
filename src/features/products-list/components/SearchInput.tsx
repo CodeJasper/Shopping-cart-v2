@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from "react-router";
+import { ROUTES } from "@app";
 
 export function SearchInput() {
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -21,8 +22,8 @@ export function SearchInput() {
   const handleFilterProducts = (term: string) => {
     dispatch(setProductsFiltered(term));
 
-    if(location.pathname !== "/") {
-      navigate('/')
+    if(location.pathname !== ROUTES.HOME.route) {
+      navigate(ROUTES.HOME.route)
     }
   }
 

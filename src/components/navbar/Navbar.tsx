@@ -1,6 +1,7 @@
 import { SearchInput } from "@features";
 import { useState } from "react";
 import { NavLink } from "react-router";
+import { ROUTES } from "@app";
 
 export function Navbar() {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
@@ -22,18 +23,18 @@ export function Navbar() {
           </button>
 
           <div className="hidden md:flex gap-4">
-            <NavLink to="/">Productos</NavLink>
-            <NavLink to="/cart">Carrito</NavLink>
+            <NavLink to={ROUTES.HOME.route}>Productos</NavLink>
+            <NavLink to={ROUTES.CART.route}>Carrito</NavLink>
           </div>
         </div>
       </div>
       {openMobileMenu && (
         <div className="border-t border-gray-200 ">
           <div className="container px-4 mx-auto lg:max-w-5xl md:hidden bg-white p-4 space-y-2">
-            <NavLink to="/" onClick={() => setOpenMobileMenu(false)} className="block">
+            <NavLink to={ROUTES.HOME.route} onClick={() => setOpenMobileMenu(false)} className="block">
               Productos
             </NavLink>
-            <NavLink to="/cart" onClick={() => setOpenMobileMenu(false)} className="block">
+            <NavLink to={ROUTES.CART.route} onClick={() => setOpenMobileMenu(false)} className="block">
               Carrito
             </NavLink>
           </div>

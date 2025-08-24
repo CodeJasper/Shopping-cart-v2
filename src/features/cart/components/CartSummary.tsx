@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveAs } from "file-saver";
 import { resetCart } from "@features";
 import { useNavigate } from "react-router";
+import { ROUTES } from "@app";
 
 export function CartSummary() {
   const { total, subTotal, products } = useSelector((state: RootState) => state.cart);
@@ -21,7 +22,7 @@ export function CartSummary() {
     });
     saveAs(blob, "cart.json");
     dispatch(resetCart());
-    navigate('purchase-completed')
+    navigate(ROUTES.PURCHASE_COMPLETED.route)
   };
   
   return (
