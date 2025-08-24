@@ -1,7 +1,6 @@
 import { DeleteIcon, InputNumberQuantity } from "@components";
-import { deleteProduct, setProductQuantity, type ProductCart } from "@features";
-import { useEffect, useState } from "react";
-import type { ChangeEvent } from "react";
+import { setProductQuantity, useAddProductToCart, type ProductCart } from "@features";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router";
 import { ROUTES } from "@app";
@@ -12,35 +11,19 @@ export type CartProductListItemProps = {
 
 export function CartProductListItem(props: CartProductListItemProps) {
   const { product } = props;
-  const [ quantity, setQuantity] = useState(product.quantity);
+  const { 
+    quantity,
+    handleChangeQuantity,
+    handleOnClickAddButton,
+    handleOnClickRemoveButton,
+    handleDeleteProduct
+  } = useAddProductToCart({ product });
   const productTotal = product.quantity * product.prices[0].priceWithoutFormatting;
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setProductQuantity({...product, quantity}));
   }, [quantity, product])
-
-  const handleChangeQuantity = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-
-    if(Number(value) > 0) {
-      setQuantity(Number(value))
-    }
-  }
-
-  const handleOnClickAddButton = () => {
-    setQuantity((prevState) => prevState + 1);
-  }
-
-  const handleOnClickRemoveButton = () => {
-    if(quantity > 1) {
-      setQuantity((prevState) => prevState - 1);
-    }
-  }
-
-  const handleDeleteProduct = () => {
-    dispatch(deleteProduct(product))
-  }
 
   return (
     <div className="p-4 rounded bg-white">
