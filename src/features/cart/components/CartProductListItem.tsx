@@ -1,5 +1,5 @@
-import { InputNumberQuantity } from "@components";
-import { setProductQuantity, type ProductCart } from "@features";
+import { DeleteIcon, InputNumberQuantity } from "@components";
+import { deleteProduct, setProductQuantity, type ProductCart } from "@features";
 import { useEffect, useState } from "react";
 import type { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
@@ -12,7 +12,7 @@ export type CartProductListItemProps = {
 export function CartProductListItem(props: CartProductListItemProps) {
   const { product } = props;
   const [ quantity, setQuantity] = useState(product.quantity);
-  const subTotal = product.quantity * product.prices[0].priceWithoutFormatting;
+  const productTotal = product.quantity * product.prices[0].priceWithoutFormatting;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,13 +37,23 @@ export function CartProductListItem(props: CartProductListItemProps) {
     }
   }
 
+  const handleDeleteProduct = () => {
+    dispatch(deleteProduct(product))
+  }
+
   return (
     <div className="p-4 rounded bg-white">
-      <div className="grid grid-cols-12 gap-3">
+      <div className="grid grid-cols-12 gap-3 relative">
+        <button 
+          className="lg:hidden border border-gray-700 rounded p-1 text-gray-700 hover:cursor-pointer hover:bg-gray-200 absolute right-0 top-0"
+          onClick={handleDeleteProduct}
+        >
+          <DeleteIcon />
+        </button>
         <NavLink className="col-span-2" to={`/product/${product.productId}`}>
           <img src={product.mediaUrls[0]} />
         </NavLink>
-        <div className="col-span-10 lg:col-span-4">
+        <div className="col-span-10 lg:col-span-4 pr-7 mr-7 lg:pr-0 lg:mr-0">
           <p className="text-gray-600">{product.brand}</p>
           <h2 className="font-semibold"><NavLink to={`/product/${product.productId}`}>{product.displayName}</NavLink></h2>
           <p className="text-gray-600">Modelo: {product.model || "Sin modelo"}</p>
@@ -57,10 +67,18 @@ export function CartProductListItem(props: CartProductListItemProps) {
             inputClassName="max-w-[100px]"
           />
         </div>
-        <p className="text-lg font-semibold col-span-4 lg:col-span-2 text-right">$ {product.prices[0].price}</p>
+        <div className="flex flex-col justify-between items-end col-span-4 lg:col-span-2">
+          <p className="text-lg font-semibold">$ {product.prices[0].price}</p>
+          <button
+            className="hidden lg:block border border-gray-700 rounded p-2 text-gray-700 hover:cursor-pointer hover:bg-gray-200"
+            onClick={handleDeleteProduct}
+          >
+            <DeleteIcon />
+          </button>
+        </div>
       </div>
       <div className="border-t border-gray-300 mt-4 pt-4">
-        <p className="text-right font-semibold text-lg">Subtotal: $ {subTotal.toLocaleString('es-ES')}</p>
+        <p className="text-right font-semibold text-lg">Total Producto: $ {productTotal.toLocaleString('es-ES')}</p>
       </div>
     </div>
   )
