@@ -1,9 +1,13 @@
 import type { RootState } from "@app";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { saveAs } from "file-saver";
+import { resetCart } from "@features";
+import { useNavigate } from "react-router";
 
 export function CartSummary() {
   const { total, subTotal, products } = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleDownload = () => {
     const cartJson = {
@@ -16,6 +20,8 @@ export function CartSummary() {
       type: "application/json",
     });
     saveAs(blob, "cart.json");
+    dispatch(resetCart());
+    navigate('purchase-completed')
   };
   
   return (
