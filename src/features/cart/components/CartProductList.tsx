@@ -2,12 +2,13 @@ import type { RootState } from "@app";
 import { useSelector } from "react-redux";
 import { CartProductListItem } from "@features";
 
-export function CartProductList() {
-  const { products } = useSelector((state: RootState) => state.cart);
+export type CartProductListProps = {
+  subTotal: number;
+}
 
-  const getTotal = () => {
-    return products.reduce((acc, product) => acc + product.prices[0].priceWithoutFormatting * product.quantity, 0);
-  }
+export function CartProductList(props: CartProductListProps) {
+  const { subTotal } = props;
+  const { products } = useSelector((state: RootState) => state.cart);
 
   return (
     <>
@@ -18,7 +19,7 @@ export function CartProductList() {
         {products.map((product) => <CartProductListItem product={product} key={product.productId} />)}
         <div>
           <div className="bg-white mt-4 p-4 rounded">
-            <p className="text-right font-semibold text-lg">Total: $ {getTotal().toLocaleString('es-ES')}</p>
+            <p className="text-right font-semibold text-lg">Total: $ {subTotal.toLocaleString('es-ES')}</p>
           </div>
         </div>
       </div>
