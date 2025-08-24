@@ -18,7 +18,7 @@ export function PurchaseCompletedPage() {
             strokeLinejoin="round"
           />
         </svg>
-        <h1 className="text-3xl font-semibold mt-4">¡Compra completada!</h1>
+        <h1 className="text-3xl font-semibold mt-4 text-center">¡Compra completada!</h1>
       </div>
     </div>
   )
