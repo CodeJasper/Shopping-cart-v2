@@ -2,6 +2,7 @@ import { SearchInput } from "@features";
 import { useState } from "react";
 import { NavLink } from "react-router";
 import { ROUTES } from "@app";
+import { CartIcon, NavbarCart } from "@components";
 
 export function Navbar() {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
@@ -24,7 +25,7 @@ export function Navbar() {
 
           <div className="hidden md:flex gap-4">
             <NavLink to={ROUTES.HOME.route}>Productos</NavLink>
-            <NavLink to={ROUTES.CART.route}>Carrito</NavLink>
+            <NavbarCart />
           </div>
         </div>
       </div>
@@ -35,7 +36,7 @@ export function Navbar() {
               Productos
             </NavLink>
             <NavLink to={ROUTES.CART.route} onClick={() => setOpenMobileMenu(false)} className="block">
-              Carrito
+              Carro
             </NavLink>
           </div>
         </div>
