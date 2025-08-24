@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 import type { MouseEvent } from "react";
-import { AddCartButton } from "@components";
+import { Button, BUTTON_SIZES, BUTTON_VARIANTS, type ButtonSizesType, type ButtonVariantsType } from "@components";
 import { ROUTES } from "@app";
 
 export type ProductListCardProps = {
@@ -22,7 +22,13 @@ export function ProductListCard(props: ProductListCardProps) {
         </NavLink>
         <p className="text-lg font-semibold">$ {price}</p>
       </div>
-      <AddCartButton handleAddToCart={handleAddToCart} />
+      <Button
+        handleClick={handleAddToCart}
+        size={BUTTON_SIZES.MD as ButtonSizesType}
+        variant={BUTTON_VARIANTS.PRIMARY as ButtonVariantsType}
+        >
+          Agregar al carro
+      </Button>
     </div>
   )
 }

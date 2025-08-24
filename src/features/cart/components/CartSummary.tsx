@@ -4,6 +4,7 @@ import { saveAs } from "file-saver";
 import { resetCart } from "@features";
 import { useNavigate } from "react-router";
 import { ROUTES } from "@app";
+import { Button, BUTTON_SIZES, BUTTON_VARIANTS, type ButtonSizesType, type ButtonVariantsType } from "@components";
 
 export function CartSummary() {
   const { total, subTotal, products } = useSelector((state: RootState) => state.cart);
@@ -38,12 +39,14 @@ export function CartSummary() {
           <p className="flex justify-between font-semibold text-xl"><span>Total a pagar:</span><span>$ {total.toLocaleString('es-ES')}</span></p>
         </div>
 
-        <button
-          className="rounded px-4 py-3 bg-green-600 w-full text-xl font-semibold mt-4 text-white hover:cursor-pointer hover:bg-green-500"
-          onClick={handleDownload}
+        <Button
+          size={BUTTON_SIZES.MD as ButtonSizesType}
+          variant={BUTTON_VARIANTS.SUCCESS as ButtonVariantsType}
+          handleClick={handleDownload}
+          className="w-full mt-4 font-semibold"
         >
           Comprar
-        </button>
+        </Button>
       </div>
     </>
   )

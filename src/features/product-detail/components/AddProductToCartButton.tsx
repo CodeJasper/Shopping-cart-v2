@@ -1,4 +1,4 @@
-import { AddCartButton, InputNumberQuantity } from "@components";
+import { Button, InputNumberQuantity, BUTTON_SIZES, BUTTON_VARIANTS, type ButtonSizesType, type ButtonVariantsType } from "@components";
 import { useState } from "react";
 import type { ChangeEvent } from "react";
 import type { MouseEvent } from "react";
@@ -48,7 +48,14 @@ export function AddProductToCartButton(props: AddProductToCartButtonProps) {
         quantity={quantity}
         inputClassName="w-full sm:max-w-[60px] md:max-w-full lg:max-w-[100px]"
       />
-      <AddCartButton className="grow" handleAddToCart={handleAddToCart} />
+      <Button
+        className="grow"
+        handleClick={handleAddToCart}
+        size={BUTTON_SIZES.MD as ButtonSizesType}
+        variant={BUTTON_VARIANTS.PRIMARY as ButtonVariantsType}
+        >
+          Agregar al carro
+        </Button>
     </div>
   )
 }
