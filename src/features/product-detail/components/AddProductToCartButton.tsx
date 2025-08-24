@@ -1,4 +1,4 @@
-import { AddCartButton } from "@components";
+import { AddCartButton, InputNumberQuantity } from "@components";
 import { useState } from "react";
 import type { ChangeEvent } from "react";
 import type { MouseEvent } from "react";
@@ -17,7 +17,10 @@ export function AddProductToCartButton(props: AddProductToCartButtonProps) {
 
   const handleChangeQuantity = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setQuantity(Number(value))
+
+    if(Number(value) > 0) {
+      setQuantity(Number(value))
+    }
   }
 
   const handleOnClickAddButton = () => {
@@ -25,7 +28,9 @@ export function AddProductToCartButton(props: AddProductToCartButtonProps) {
   }
 
   const handleOnClickRemoveButton = () => {
-    setQuantity((prevState) => prevState - 1);
+    if(quantity > 1) {
+      setQuantity((prevState) => prevState - 1);
+    }
   }
 
   const handleAddToCart = (_: MouseEvent<HTMLButtonElement>) => {
@@ -33,21 +38,14 @@ export function AddProductToCartButton(props: AddProductToCartButtonProps) {
   }
 
   return (
-    <div className="flex gap-4">
-      <div className="flex">
-        <button className="border border-gray-200 text-2xl h-[48px] w-[48px] hover:cursor-pointer flex justify-center items-center" onClick={handleOnClickRemoveButton}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12" />
-          </svg>
-        </button>
-        <input className="border border-x-0 border-gray-200 px-2 sm:px-4 max-w-[60px] md:max-w-[60px] lg:max-w-[100px]" type="number" min={1} value={quantity} onChange={handleChangeQuantity} />
-        <button className="border border-gray-200 text-2xl h-[48px] w-[48px] hover:cursor-pointer flex justify-center items-center" onClick={handleOnClickAddButton}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="12" y1="5" x2="12" y2="19" />
-            <line x1="5" y1="12" x2="19" y2="12" />
-          </svg>
-        </button>
-      </div>
+    <div className="flex sm:flex-row md:flex-col lg:flex-row flex-col gap-4">
+      <InputNumberQuantity
+        handleChangeQuantity={handleChangeQuantity}
+        handleOnClickAddButton={handleOnClickAddButton}
+        handleOnClickRemoveButton={handleOnClickRemoveButton}
+        quantity={quantity}
+        inputClassName="w-full sm:max-w-[60px] md:max-w-full lg:max-w-[100px]"
+      />
       <AddCartButton className="grow" handleAddToCart={handleAddToCart} />
     </div>
   )

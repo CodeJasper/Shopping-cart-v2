@@ -28,7 +28,9 @@ export function ProductDetails({product}: ProductDetailsProps) {
       {product.multiPurposeIcon && (
         <img className="mt-4" src={product.multiPurposeIcon.iconUrl}/>
       )}
-      <AddProductToCartButton product={product} />
+      <div className="mt-4">
+        <AddProductToCartButton product={product} />
+      </div>
     </div>
   )
 }

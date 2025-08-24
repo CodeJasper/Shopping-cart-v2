@@ -14,9 +14,9 @@ export function ProductDetailPage() {
   }
 
   return (
-    <div className="grid grid-cols-12 gap-7">
-      <div className="col-span-12 md:col-span-6"><Slider mediaUrls={product.mediaUrls || []} /></div>
-      <div className="col-span-12 md:col-span-6"><ProductDetails product={product}/></div> 
+    <div className="grid grid-cols-12 gap-3">
+      <div className="col-span-12 md:col-span-6 bg-white py-7 px-7"><Slider mediaUrls={product.mediaUrls || []} /></div>
+      <div className="col-span-12 md:col-span-6 bg-white py-7 px-7"><ProductDetails product={product}/></div> 
     </div>
   );
 }

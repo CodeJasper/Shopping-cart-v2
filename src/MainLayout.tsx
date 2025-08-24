@@ -24,7 +24,7 @@ function MainLayout() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto p-4 pt-[100px] lg:max-w-5xl">
+      <div className="container mx-auto p-4 pt-[100px] lg:max-w-7xl">
         <Outlet />
       </div>
     </>

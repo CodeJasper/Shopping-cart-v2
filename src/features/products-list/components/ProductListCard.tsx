@@ -13,7 +13,7 @@ export type ProductListCardProps = {
 export function ProductListCard(props: ProductListCardProps) {
   const { productId, imageUrl, displayName, price, handleAddToCart } = props;
   return (
-    <NavLink to={`product/${productId}`} className="border border-gray-300 p-4 rounded shadow flex flex-col justify-between gap-4">
+    <NavLink to={`product/${productId}`} className="border border-gray-300 p-4 rounded shadow flex flex-col justify-between gap-4 bg-white">
       <div>
         <img src={imageUrl} alt={displayName} className="w-full h-48 object-contain mb-2" />
         <h2 className="text-md mb-1">{displayName}</h2>
