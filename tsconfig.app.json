@@ -29,6 +29,7 @@
       "@app/*": ["app/*"],
       "@features/*": ["features/*"],
       "@components/*": ["components/*"],
+      "@tests/*": ["tests/*"],
     }
 
   },

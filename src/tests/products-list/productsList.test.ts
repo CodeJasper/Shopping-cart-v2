@@ -1,7 +1,7 @@
-import { productsListSlice, setProducts, setProductsFiltered, setIsLoadingProducts } from "../../features/products-list/productsListStore";""
-import type { ProductsListState } from "../../features/products-list/types";
-import { mockProducts } from "../mocks/products"
+import { productsListSlice, setProducts, setProductsFiltered, setIsLoadingProducts } from "@features/products-list/productsListStore";
 import { test, expect, describe,beforeEach } from "vitest";
+import type { ProductsListState } from "@features/products-list/types";
+import { mockProducts } from "@tests/mocks/products"
 
 describe("productsListSlice", () => {
   let initialState: ProductsListState;
