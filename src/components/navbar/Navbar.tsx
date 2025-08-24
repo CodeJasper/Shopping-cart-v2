@@ -2,7 +2,7 @@ import { SearchInput } from "@features";
 import { useState } from "react";
 import { NavLink } from "react-router";
 import { ROUTES } from "@app";
-import { CartIcon, NavbarCart } from "@components";
+import { NavbarCart } from "@components";
 
 export function Navbar() {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
@@ -10,7 +10,9 @@ export function Navbar() {
   return (
     <nav className="bg-white fixed w-full top-0 left-0 border-b border-gray-200 z-50 min-h-[75px]">
       <div className="relative container p-4 mx-auto lg:max-w-7xl flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Sodimac Tech</h1>
+        <h1 className="text-2xl font-bold">
+          <NavLink to={ROUTES.HOME.route}>Sodimac</NavLink>
+        </h1>
         <div className="flex items-center gap-4">
           <SearchInput />
           <button
