@@ -1,5 +1,5 @@
-import { SearchInputSuggestions } from "@features";
-import { SearchIcon} from "@components";
+import { SearchInputSuggestions } from "@features/products-list/components/SearchInputSuggestions";
+import { SearchIcon} from "@components/icons/SearchIcon";
 
 export type SearchInputStaticProps = {
   handleInputFocus: () => void;

@@ -1,8 +1,9 @@
-import type { RootState } from "@app";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { ProductDetails, Slider } from "@features";
-import { Loading } from "@components";
+import type { RootState } from "@app/store";
+import { ProductDetails } from "@features/product-detail/components/ProductDetails";
+import { Slider } from "@features/product-detail/components/Slider";
+import { Loading } from "@components/loading/Loading";
 
 export function ProductDetailPage() {
   const { products } = useSelector((state: RootState) => state.productList);

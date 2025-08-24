@@ -1,7 +1,10 @@
-import { CartPage, ProductDetailPage, ProductsListPage, PurchaseCompletedPage } from "@features";
 import { createBrowserRouter } from "react-router";
-import { ROUTES } from "@app";
-import MainLayout from "../../MainLayout";
+import { CartPage } from "@features/cart/CartPage";
+import { ProductDetailPage } from "@features/product-detail/ProductDetailPage";
+import { ProductsListPage } from "@features/products-list/ProductsListPage";
+import { PurchaseCompletedPage } from "@features/cart/PurchaseCompletedPage";
+import { ROUTES } from "@app/routing/routes";
+import MainLayout from "@app/MainLayout";
 
 export const router = createBrowserRouter([
    {

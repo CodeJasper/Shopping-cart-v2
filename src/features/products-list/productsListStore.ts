@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { ProductsListState } from "@features";
+import type { ProductsListState } from "@features/products-list/types";
 
 const initialState: ProductsListState = {
 	products: [],	

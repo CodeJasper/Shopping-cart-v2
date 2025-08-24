@@ -1,6 +1,9 @@
-import { Button, InputNumberQuantity, BUTTON_SIZES, BUTTON_VARIANTS, type ButtonSizesType, type ButtonVariantsType } from "@components";
-import { useAddProductToCart } from "@features";
-import type { Product } from "@features";
+import { type ButtonSizesType, type ButtonVariantsType } from "@components/button/types";
+import { BUTTON_SIZES, BUTTON_VARIANTS } from "@components/button/constants";
+import { InputNumberQuantity } from "@components/input-numer-quantity/InputNumberQuantity";
+import { Button } from "@components/button/Buttton";
+import { useAddProductToCart } from "@features/cart/hooks/useAddProductToCart";
+import type { Product } from "@features/products-list/types";
 
 export type AddProductToCartButtonProps = {
   product: Product

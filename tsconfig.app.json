@@ -27,11 +27,8 @@
     "baseUrl": "./src",
     "paths": {
       "@app/*": ["app/*"],
-      "@app": ["app/index"],
       "@features/*": ["features/*"],
-      "@features": ["features/index"],
       "@components/*": ["components/*"],
-      "@components": ["components/index"]
     }
 
   },

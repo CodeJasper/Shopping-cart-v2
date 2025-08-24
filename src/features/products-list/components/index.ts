@@ -1,6 +1,0 @@
-export * from './ProductsList'
-export * from './ProductListCard'
-export * from './SearchInputStatic'
-export * from './SearchInputExpanded'
-export * from './SearchInput'
-export * from './SearchInputSuggestions'

@@ -1,7 +1,9 @@
 import { NavLink } from "react-router";
 import type { MouseEvent } from "react";
-import { Button, BUTTON_SIZES, BUTTON_VARIANTS, type ButtonSizesType, type ButtonVariantsType } from "@components";
-import { ROUTES } from "@app";
+import { Button } from "@components/button/Buttton";
+import { BUTTON_SIZES, BUTTON_VARIANTS } from "@components/button/constants";
+import { type ButtonSizesType, type ButtonVariantsType } from "@components/button/types";
+import { ROUTES } from "@app/routing/routes";
 
 export type ProductListCardProps = {
   productId: string;

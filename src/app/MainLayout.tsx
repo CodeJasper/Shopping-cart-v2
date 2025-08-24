@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router'
-import { Navbar } from '@components'
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { QueryStatus } from '@reduxjs/toolkit/query';
 import { Toaster } from "react-hot-toast";
-import { setIsLoadingProducts, setProducts } from '@features';
-import { useGetProductsQuery } from '@app';
+import { Navbar } from '@components/navbar/Navbar'
+import { setIsLoadingProducts, setProducts } from '@features/products-list/productsListStore';
+import { useGetProductsQuery } from '@app/api';
 
 function MainLayout() {  
   const response = useGetProductsQuery();

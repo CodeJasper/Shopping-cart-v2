@@ -1,4 +1,4 @@
-import type { Product } from "@features";
+import type { Product } from "@features/products-list/types";
 
 export type ProductCart = Product & {
     quantity: number;

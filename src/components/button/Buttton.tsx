@@ -1,5 +1,6 @@
 import type { MouseEvent, PropsWithChildren } from "react"
-import { BUTTON_SIZES, BUTTON_VARIANTS, type ButtonSizesType, type ButtonVariantsType } from "@components";
+import { BUTTON_SIZES, BUTTON_VARIANTS } from "@components/button/constants";
+import { type ButtonSizesType, type ButtonVariantsType } from "@components/button/types";
 
 export type ButtonProps = PropsWithChildren<{
   handleClick: (e: MouseEvent<HTMLButtonElement>) => void;

@@ -1,9 +1,12 @@
-import { DeleteIcon, InputNumberQuantity } from "@components";
-import { setProductQuantity, useAddProductToCart, type ProductCart } from "@features";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router";
-import { ROUTES } from "@app";
+import { DeleteIcon } from "@components/icons/DeleteIcon";
+import { InputNumberQuantity } from "@components/input-numer-quantity/InputNumberQuantity";
+import { setProductQuantity } from "@features/cart/store/cartStoreSlice";
+import { useAddProductToCart } from "@features/cart/hooks/useAddProductToCart";
+import { type ProductCart } from "@features/cart/types";
+import { ROUTES } from "@app/routing/routes";
 
 export type CartProductListItemProps = {
   product: ProductCart;

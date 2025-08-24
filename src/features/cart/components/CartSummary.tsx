@@ -1,10 +1,12 @@
-import type { RootState } from "@app";
-import { useDispatch, useSelector } from "react-redux";
 import { saveAs } from "file-saver";
-import { resetCart } from "@features";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { ROUTES } from "@app";
-import { Button, BUTTON_SIZES, BUTTON_VARIANTS, type ButtonSizesType, type ButtonVariantsType } from "@components";
+import type { RootState } from "@app/store";
+import { resetCart } from "@features/cart/store/cartStoreSlice";
+import { ROUTES } from "@app/routing/routes";
+import { Button } from "@components/button/Buttton";
+import { BUTTON_SIZES, BUTTON_VARIANTS } from "@components/button/constants";
+import { type ButtonSizesType, type ButtonVariantsType } from "@components/button/types";
 
 export function CartSummary() {
   const { total, subTotal, products } = useSelector((state: RootState) => state.cart);

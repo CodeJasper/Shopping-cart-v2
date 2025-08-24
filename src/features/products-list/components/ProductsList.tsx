@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { type RootState } from '@app'
-import { addProduct, ProductListCard, type Product } from "@features";
-import { Loading } from '@components';
 import type { MouseEvent } from 'react';
 import { toast } from "react-hot-toast";
+import { type RootState } from '@app/store'
+import { type Product } from "@features/products-list/types";
+import { addProduct } from "@features/cart/store/cartStoreSlice";
+import { ProductListCard } from "@features/products-list/components/ProductListCard";
+import { Loading } from '@components/loading/Loading';
 
 export function ProductsList() {
   const { 

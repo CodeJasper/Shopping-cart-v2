@@ -1,6 +1,6 @@
-import type { RootState } from "@app";
 import { useSelector } from "react-redux";
-import { CartProductListItem } from "@features";
+import type { RootState } from "@app/store";
+import { CartProductListItem } from "@features/cart/components/CartProductListItem";
 
 export function CartProductList() {
   const { products, subTotal } = useSelector((state: RootState) => state.cart);

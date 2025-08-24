@@ -1,9 +1,11 @@
-import { SearchInputStatic, SearchInputExpanded, setProductsFiltered } from "@features";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from "react-router";
-import { ROUTES } from "@app";
+import { SearchInputStatic } from "@features/products-list/components/SearchInputStatic";
+import { SearchInputExpanded } from "@features/products-list/components/SearchInputExpanded";
+import { setProductsFiltered } from "@features/products-list/productsListStore";
+import { ROUTES } from "@app/routing/routes";
 
 export function SearchInput() {
   const [showSuggestions, setShowSuggestions] = useState(false);

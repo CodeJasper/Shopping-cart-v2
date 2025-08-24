@@ -2,9 +2,9 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
-
-import { productsListSlice, cartSlice } from "@features";
-import { api } from "@app";
+import { cartSlice } from "@features/cart/store/cartStoreSlice";
+import { productsListSlice } from "@features/products-list/productsListStore";
+import { api } from "@app/api";
 
 const rootReducer = combineReducers({
   [productsListSlice.name]: productsListSlice.reducer,

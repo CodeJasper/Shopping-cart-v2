@@ -1,8 +1,8 @@
-import { ROUTES } from "@app";
-import { CartIcon } from "@components";
-import { selectCartTotalProductsQuanitiy } from "@features";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router";
+import { ROUTES } from "@app/routing/routes";
+import { CartIcon } from "@components/icons/CartIcon";
+import { selectCartTotalProductsQuanitiy } from "@features/cart/store/cartStoreSelectors";
 
 export function NavbarCart() {
   const totalProductsQuantity = useSelector(selectCartTotalProductsQuanitiy);

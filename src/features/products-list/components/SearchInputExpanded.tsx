@@ -1,6 +1,7 @@
-import { SearchInputSuggestions } from "@features";
-import { SearchIcon, LeftArrowIcon } from "@components";
 import { useEffect, useRef } from "react";
+import { SearchInputSuggestions } from "@features/products-list/components/SearchInputSuggestions";
+import { SearchIcon } from "@components/icons/SearchIcon";
+import { LeftArrowIcon } from "@components/icons/LeftArrowIcon";
 
 export type SearchInputExpandedProps = {
   handleInputFocus: () => void;

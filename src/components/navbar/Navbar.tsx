@@ -1,8 +1,8 @@
-import { SearchInput } from "@features";
 import { useState } from "react";
 import { NavLink } from "react-router";
-import { ROUTES } from "@app";
-import { NavbarCart } from "@components";
+import { SearchInput } from "@features/products-list/components/SearchInput";
+import { ROUTES } from "@app/routing/routes";
+import { NavbarCart } from "@components/navbar-cart/NavbarCart";
 
 export function Navbar() {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
