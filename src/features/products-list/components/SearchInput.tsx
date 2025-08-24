@@ -2,6 +2,7 @@ import { SearchInputStatic, SearchInputExpanded, setProductsFiltered } from "@fe
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from 'react-responsive';
+import { useLocation, useNavigate } from "react-router";
 
 export function SearchInput() {
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -9,6 +10,8 @@ export function SearchInput() {
   const [expandInput, setExpandInput] = useState(false);
   const dispatch = useDispatch();
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSelectSuggestion = (suggestion: string) => {
     setSearchTerm(suggestion); 
@@ -17,6 +20,10 @@ export function SearchInput() {
 
   const handleFilterProducts = (term: string) => {
     dispatch(setProductsFiltered(term));
+
+    if(location.pathname !== "/") {
+      navigate('/')
+    }
   }
 
   const handleInputFocus = () => {
