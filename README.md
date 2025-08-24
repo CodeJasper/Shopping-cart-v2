@@ -1,13 +1,53 @@
 # Shopping Cart V2
 
-A React-based shopping cart application showcasing modern frontend development practices.
+This project is a shopping cart application built with **React**, **Redux Toolkit**, and **Vite**, allowing users to browse products, manage a cart, and download a JSON summary of their purchase.
 
 ## Features
+- Search products by name.
+- Add products to the cart from the product list.
+- Delete products from the cart.
+- View product details and add products with a selected quantity.
+- View cart with a list of products and a summary of the purchase.
+- Download a JSON file of the cart contents when completing a purchase.
+- Persistent global state using **Redux** and **localStorage**.
 
-- **React 19 + Vite:** Fast development and optimized build.
-- **React Router:** Client-side routing for navigation.
-- **State Management:** Multiple reducers to handle complex state.
-- **Deployment:** Hosted on Vercel.
+## State Management
+
+- The app uses **Redux Toolkit** for global state management.
+- Cart operations (add, remove, update quantity, reset) are handled through slices in the store.
+- The state is persisted in **localStorage**, so the cart survives page reloads.
+
+## Testing
+
+### Unit Tests
+
+Unit tests are implemented for Redux slices and other functionality.  
+Run tests using **Vitest**:
+
+```bash
+npx vitest
+```
+
+### API Load Test
+
+A performance/load test is implemented for the products API using Autocannon.
+Run the load test with:
+
+```bash
+node src/tests/performance/productsLoad.cjs
+```
+
+This simulates multiple concurrent requests to evaluate API performance and latency.
+
+## Technologies Used
+
+- React 19 with JSX and Vite
+- Redux Toolkit for state management
+- Tailwind CSS for styling
+- TypeScript
+- Vitest for unit tests
+- Autocannon for load testing
+- Vercel for deployment
 
 ## Live Demo
 
@@ -62,8 +102,8 @@ shopping-cart-v2/
 │   ├── components/
 │   ├── app/
 │   ├── features/
+│   ├── tests/
 │   ├── main.tsx
-│   └── MainLayout.tsx
 ├── package.json
 ├── vite.config.ts
 └── README.md
